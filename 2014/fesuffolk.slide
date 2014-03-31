@@ -6,6 +6,10 @@ freelance gopher
 http://tardisgo.github.io
 @elliottstoneham
 
+* slides
+
+.link http://go-talks.appspot.com/github.com/elliott5/talks/2014/fesuffolk.slide
+
 * what is Go?
 
 Go is a 21st century general-purpose programming language:
