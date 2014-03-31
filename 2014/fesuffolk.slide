@@ -1,5 +1,5 @@
 The Go Language 
-assertions, quotations, examples
+an overview for FESuffolk
 
 Elliott Stoneham
 freelance gopher
@@ -39,17 +39,19 @@ _"Go_is_a_wise,_clean,_insightful,_fresh_thinking_approach_to_the_greatest-hits_
 
 .play fesuffolk/hello.go
 
-* hello world, calling a C function (note: only works when run locally)
+* hello world, calling a C function 
 
 The `C` pseudo-package provides an interface to C code.
 
 .play fesuffolk/hello-c.go
+(note: only works when run locally)
 
-* hello world, as a web server (note: only works when run locally)
+* hello world, as a web server 
 
 The `net/http` package implements an HTTP server and client.
 
 .play fesuffolk/hello-web.go
+(note: only works when run locally)
 
 * the birth of Go in 2007
 
@@ -145,9 +147,10 @@ The result: comprehensible concurrent code.
 
 .play fesuffolk/waiter.go /^func waiter/,/endmain/
 
-* a race between Google and Microsoft (note: only works when run locally)
+* a race to respond 
 
 .play fesuffolk/race.go  /^func main/,/^}/
+(note: only works when run locally)
 
 * Chinese whispers, gopher style
 
@@ -203,3 +206,5 @@ Renee French for the original Go Gopher design.
 http://gobyexample.com for a number of examples.
 
 Dave Cheney for inspiring the "C" hello world.
+
+http://go-lang.cat-v.org/quotes for many of the quotations.
