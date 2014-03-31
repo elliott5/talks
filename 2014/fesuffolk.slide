@@ -5,13 +5,6 @@ Elliott Stoneham
 freelance gopher
 http://tardisgo.github.io
 @elliottstoneham
-http://tour.golang.org
-
-* my current freelance client
-
-.image fesuffolk/documizelogo.png 
-
-.link http://documize.com
 
 * what is Go?
 
@@ -35,15 +28,10 @@ _"Go_is_a_wise,_clean,_insightful,_fresh_thinking_approach_to_the_greatest-hits_
 * my agenda
 
 - hello
-
 - origins 
-
 - clarity
-
 - composition
-
 - concurrency
-
 - cartoons
 
 
@@ -51,13 +39,13 @@ _"Go_is_a_wise,_clean,_insightful,_fresh_thinking_approach_to_the_greatest-hits_
 
 .play fesuffolk/hello.go
 
-* hello world (calling a C function)
+* hello world, calling a C function (note: only works when run locally)
 
 The `C` pseudo-package provides an interface to C code.
 
 .play fesuffolk/hello-c.go
 
-* hello world (as a web server)
+* hello world, as a web server (note: only works when run locally)
 
 The `net/http` package implements an HTTP server and client.
 
@@ -157,7 +145,7 @@ The result: comprehensible concurrent code.
 
 .play fesuffolk/waiter.go /^func waiter/,/endmain/
 
-* a race between Google, Microsoft, and Facebook
+* a race between Google and Microsoft (note: only works when run locally)
 
 .play fesuffolk/race.go  /^func main/,/^}/
 
