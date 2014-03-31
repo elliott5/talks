@@ -1,0 +1,217 @@
+The Go Language 
+assertions, quotations, examples
+
+Elliott Stoneham
+freelance gopher
+http://tardisgo.github.io
+@elliottstoneham
+http://tour.golang.org
+
+* my current freelance client
+
+.image fesuffolk/documizelogo.png 
+
+.link http://documize.com
+
+* what is Go?
+
+Go is a 21st century general-purpose programming language:
+
+- Compiled
+- Statically typed
+- Concurrent
+- Simple
+- Productive
+
+_"Go_is_a_wise,_clean,_insightful,_fresh_thinking_approach_to_the_greatest-hits_subset_of_the_well_understood."_
+- Michael T. Jones
+
+* my objective today
+
+.image fesuffolk/plush.jpg
+
+.link http://tour.golang.org
+
+* my agenda
+
+- hello
+
+- origins 
+
+- clarity
+
+- composition
+
+- concurrency
+
+- cartoons
+
+
+* hello world
+
+.play fesuffolk/hello.go
+
+* hello world (calling a C function)
+
+The `C` pseudo-package provides an interface to C code.
+
+.play fesuffolk/hello-c.go
+
+* hello world (as a web server)
+
+The `net/http` package implements an HTTP server and client.
+
+.play fesuffolk/hello-web.go
+
+* the birth of Go in 2007
+
+Ken Thompson (who designed and implemented the original Unix operating system) speaking about how the Go project started at Google:
+
+_"When_the_three_of_us_ [Thompson, Rob Pike, and Robert Griesemer] _got_started,_it_was_pure_research._The_three_of_us_got_together_and_decided_that_we_hated_C++._ 
+
+_we_started_off_with_the_idea_that_all_three_of_us_had_to_be_talked_into_every_feature_in_the_language,_so_there_was_no_extraneous_garbage_put_into_the_language_for_any_reason."_
+
+* the objectives of Go
+
+_"Readable,_safe,_and_efficient_code._
+
+_A_build_system_that_scales._
+
+_Good_concurrency_support._
+
+_Tools_that_can_operate_at_Google-scale."_
+
+— Robert Griesemer
+
+* how did they do?
+
+_“The_complexity_of_C++_(even_more_complexity_has_been_added_in_the_new_C++),_and_the_resulting_impact_on_productivity,_is_no_longer_justified._
+
+_All_the_hoops_that_the_C++_programmer_had_to_jump_through_in_order_to_use_a_C-compatible_language_make_no_sense_anymore_—_they’re_just_a_waste_of_time_and_effort._ 
+
+_Now,_Go_makes_much_more_sense_for_the_class_of_problems_that_C++_was_originally_intended_to_solve.”_ 
+
+— Bruce Eckel, author and founding member of the ANSI/ISO C++ standard committee.
+
+* ...but they also made it fun!
+- _“Go_has_brought_together_a_set_of_features_that_make_it_compact,_fast,_readable,_expressive_and_fun_to_program_in._I’ve_programmed_seriously_in_tons_of_languages_(both_functional_and_not)_and_Go_is_the_most_fun_I’ve_had_in_a_long_time.”_ — John Graham-Cumming
+- _“Go_is_no_Erlang,_Smalltalk_or_Scheme,_nothing_pure._But_it_works_great_and_is_fun!”_ — Frank Mueller (@themue)
+- _“Oh_I_love_Go._I’ve_spent_more_time_coding_than_debugging_and_it’s_so_simple,_fast_and_funny…”_ — Roberto Costumero (@rcostu)
+- _“Go_is_most_fun_I’ve_had_with_a_compiled_PL_since_I’ve_discovered_Turbo_Pascal_as_a_kid.”_ — Bojan Marković
+- _"go_is_not_interesting_at_all._i_debug_3_times_less_than_before_with_it,_where_is_all_the_fun?_:("_ - anon
+
+* ...and very easy to read
+
+_“One_of_the_reasons_I_enjoy_working_with_Go_is_that_I_can_mostly_hold_the_spec_in_my_head_–_and_when_I_do_misremember_parts_it’s_a_few_seconds'_work_to_correct_myself._
+_It’s_quite_possibly_the_only_non-trivial_language_I’ve_worked_with_where_this_is_the_case.”_ 
+— Eleanor McHugh
+
+_“In_Go,_the_code_does_exactly_what_it_says_on_the_page.”_ — Andrew Gerrand
+
+_“Go_doesn’t_implicitly_anything.”_ — Steven in golang-nuts
+
+* recursive factorial
+
+.play fesuffolk/fact.go
+
+* translating json into xml 
+
+.play fesuffolk/json.go
+
+* composition
+
+Go is Object Oriented, but not in the usual way.
+
+- no classes (methods may be declared on any type)
+- no subtype inheritance
+- interfaces are satisfied implicitly (structural typing)
+
+The result: simple pieces connected by small interfaces.
+
+* methods example
+
+.play fesuffolk/methods.go
+
+* the sort interface
+
+.code fesuffolk/sortinterface.go
+
+* sorting by length
+
+.play fesuffolk/sortbylen.go
+
+* concurrency
+
+Go provides CSP-like concurrency primitives.
+
+- lightweight threads (goroutines)
+- typed thread-safe communication and synchronization (channels)
+
+The result: comprehensible concurrent code.
+
+* waiting for the waiter
+
+.play fesuffolk/simplewaiter.go
+
+* using channels to coordinate activity
+
+.play fesuffolk/waiter.go /^func waiter/,/endmain/
+
+* a race between Google, Microsoft, and Facebook
+
+.play fesuffolk/race.go  /^func main/,/^}/
+
+* Chinese whispers, gopher style
+
+.image fesuffolk/gophereartrumpet.jpg
+
+* Daisy-chain
+
+.play fesuffolk/daisy.go /func/,$
+
+* Dr Who and the mutant Go compilers 
+
+.image fesuffolk/likethetardis.png 480 640
+
+* my personal Go project
+
+.image fesuffolk/tardisgoslide.png 480 640
+
+* where is Go now?
+
+An open source (BSD licensed) project since 2009:
+
+- Language specification, 46 pages if printed, including examples,
+- Small runtime (garbage collector, scheduler, etc),
+- Two official compilers ("gc" and "gccgo"),
+- Target x86/Arm for Windows, OSX, Linux and FreeBSD,
+- Three new "mutant" compilers (including mine) target JS and other languages,
+- 'Batteries included' standard library,
+- Tools (build, fetch, test, document, profile, format),
+- Documentation, an obsessive focus, always as part of the code,
+- A large vibrant developer community, led by an excellent core Google team.
+
+* who uses Go?
+
+Some large scale Go projects, all using the core net/http library:
+
+- dl.google.com - serves Google downloads
+- github.com/youtube/vitess - YouTube's MySQL serving infrastructure
+- www.cloudflare.com - speeding up over 1,500,000 websites globally  
+- soundcloud.com - more than 10 million registered users
+- www.gov.uk - front-end for all UK government services
+- bitly.github.io/nsq - handling billions of messages per day
+
+* sponsors of the first gophercon Go conference 
+
+.image fesuffolk/sponsors.png 428 597
+
+* acknowledgements
+
+The core Go team, particularly Rob Pike, Andrew Gerrand and Francesc Campoy Flores, many of whose slides and code were remixed here.
+
+Renee French for the original Go Gopher design.
+
+http://gobyexample.com for a number of examples.
+
+Dave Cheney for inspiring the "C" hello world.
