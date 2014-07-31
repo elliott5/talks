@@ -1,0 +1,140 @@
+The Go Language 
+Some code-examples for SyncIpswich
+
+Elliott Stoneham
+freelance gopher
+https://github.com/elliott5/talks
+@elliottstoneham
+
+* my agenda
+
+- recap and fun quotes
+- hello world
+- clarity
+- composition
+- concurrency
+- cartoons
+
+* recap - what is Go?
+
+Go is a 21st century general-purpose programming language:
+
+- Compiled
+- Statically typed
+- Concurrent
+- Simple
+- Productive
+
+_"Go_is_a_wise,_clean,_insightful,_fresh_thinking_approach_to_the_greatest-hits_subset_of_the_well_understood."_
+- Michael T. Jones
+
+
+* ...but they also made it fun!
+- _“Go_has_brought_together_a_set_of_features_that_make_it_compact,_fast,_readable,_expressive_and_fun_to_program_in._I’ve_programmed_seriously_in_tons_of_languages_(both_functional_and_not)_and_Go_is_the_most_fun_I’ve_had_in_a_long_time.”_ — John Graham-Cumming
+- _“Go_is_no_Erlang,_Smalltalk_or_Scheme,_nothing_pure._But_it_works_great_and_is_fun!”_ — Frank Mueller (@themue)
+- _“Oh_I_love_Go._I’ve_spent_more_time_coding_than_debugging_and_it’s_so_simple,_fast_and_funny…”_ — Roberto Costumero (@rcostu)
+- _“Go_is_most_fun_I’ve_had_with_a_compiled_PL_since_I’ve_discovered_Turbo_Pascal_as_a_kid.”_ — Bojan Marković
+- _"go_is_not_interesting_at_all._i_debug_3_times_less_than_before_with_it,_where_is_all_the_fun?_:("_ - anon
+
+* ...and very easy to read
+
+_“One_of_the_reasons_I_enjoy_working_with_Go_is_that_I_can_mostly_hold_the_spec_in_my_head_–_and_when_I_do_misremember_parts_it’s_a_few_seconds'_work_to_correct_myself._
+_It’s_quite_possibly_the_only_non-trivial_language_I’ve_worked_with_where_this_is_the_case.”_ 
+— Eleanor McHugh
+
+_“In_Go,_the_code_does_exactly_what_it_says_on_the_page.”_ — Andrew Gerrand
+
+_“Go_doesn’t_implicitly_anything.”_ — Steven in golang-nuts
+
+* hello world
+
+.play fesuffolk/hello.go
+
+* hello world, as a web server 
+
+The `net/http` package implements an HTTP server and client.
+
+.play fesuffolk/hello-web.go
+(note: only works when run locally)
+
+* recursive factorial
+
+.play fesuffolk/fact.go
+
+* translating json into xml 
+
+.play fesuffolk/json.go
+
+* composition
+
+Go is Object Oriented, but not in the usual way.
+
+- no classes (methods may be declared on any named type)
+- no subtype inheritance (although named types can be nested)
+- interfaces are satisfied implicitly (structural typing)
+
+The result: simple pieces connected by small interfaces.
+
+* methods example
+
+.play fesuffolk/methods.go
+
+* the sort interface
+
+.code fesuffolk/sortinterface.go
+
+* sorting by length
+
+.play fesuffolk/sortbylen.go
+
+* concurrency
+
+Go provides CSP-like concurrency primitives.
+
+- lightweight threads (goroutines)
+- typed thread-safe communication and synchronization (channels)
+
+The result: comprehensible concurrent code.
+
+* waiting for the waiter
+
+.play fesuffolk/simplewaiter.go
+
+* using channels to coordinate activity
+
+.play fesuffolk/waiter.go /^func waiter/,/endmain/
+
+* a race to respond 
+
+.play fesuffolk/race.go  /^func main/,/^}/
+(note: only works when run locally)
+
+* Chinese whispers, gopher style
+
+.image fesuffolk/gophereartrumpet.jpg
+
+* Daisy-chain
+
+.play fesuffolk/daisy.go /func/,$
+
+* And finally ... select
+
+.play fesuffolk/select.go /func/,$
+
+* Where to start with Go?
+
+.link http://golang.org/ The main Go language website: golang.org
+
+.link http://tour.golang.org/ The Go tour: tour.golang.org
+
+.link http://play.golang.org/ The Go playground: play.golang.org
+
+.link http://gobyexample.com/ Go by example (used in this presentation): http://gobyexample.com
+
+.link http://learnxinyminutes.com/docs/go/ "Go was created out of the need to get work done. It’s not the latest trend in computer science, but it is the newest fastest way to solve real-world problems." - http://learnxinyminutes.com/docs/go/ 
+
+Reading the documentation and code of the standard libraries is a very good way to learn best practice. Go is a very readable language...
+
+
+
+
