@@ -2,7 +2,7 @@
 
 The first part of the day will uses the Go Tour, an introduction to the Go programming language.
 
-To install the tour locally, first (install Go)[https://golang.org/doc/install], then run:
+To install the tour locally, first [install Go](https://golang.org/doc/install), then run:
 ```
 	$ go get golang.org/x/tour/gotour
 	$ cd $GOPATH/bin
