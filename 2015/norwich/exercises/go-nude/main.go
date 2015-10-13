@@ -10,8 +10,8 @@ import (
 )
 
 func main() {
-
-	pth := "./rubens/Peter Paul Rubens - Wikipedia, the free encyclopedia_files/"
+	sl := string(os.PathSeparator)
+	pth := "." + sl + "rubens" + sl + "Peter Paul Rubens - Wikipedia, the free encyclopedia_files" + sl
 
 	dir, err := os.Open(pth)
 	if err != nil {
