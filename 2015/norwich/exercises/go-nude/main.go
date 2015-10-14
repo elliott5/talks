@@ -24,7 +24,7 @@ func main() {
 	}
 	for _, f := range fi {
 		nam := f.Name()
-		if strings.HasSuffix(nam, ".jpg") {
+		if strings.HasSuffix(strings.ToLower(nam), ".jpg") {
 			isNude, err := nude.IsNude(pth + nam)
 			if err != nil {
 				log.Fatal(err)

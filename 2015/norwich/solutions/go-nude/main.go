@@ -28,7 +28,7 @@ func main() {
 	scores := make(chan bool, len(fi))
 	for _, f := range fi {
 		nam := f.Name()
-		if strings.HasSuffix(nam, ".jpg") {
+		if strings.HasSuffix(strings.ToLower(nam), ".jpg") {
 			seen++
 			go func(nam string) {
 				isNude, err := nude.IsNude(pth + nam)

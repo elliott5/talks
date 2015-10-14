@@ -1,5 +1,14 @@
 # Go Coding Exercises
 
+To complete these excercises, you will need to look up documentation on the standard packages, which is available at "godoc.org/pkg".
+
+However you should also be able to see these locally by running:
+```
+$ godoc -v -http=:6060 
+```
+Then you can see the documentation at "localhost:6060"
+
+
 ## Ex 1 - go-nude
 
 go get github.com/koyachi/go-nude
@@ -25,6 +34,12 @@ time.Since(t time.Time) time.Duration
 
 Code is explained at https://golang.org/doc/articles/wiki/
 
+To run it:
+```
+$ go run original.go
+```
+Then goto "http://localhost:8080/view/TestPage".
+
 Task: Alter the code so that when a user goes to the root of the web server it does not give an error, 
 instead list the wiki articles available and allow a new article to be added.
 
@@ -42,12 +57,12 @@ func listTxtFiles(w http.ResponseWriter, r *http.Request) {
 You may need the following functions in the standard packages:
 ```
 fd,err:=os.Open(".") // opens the current directory
-fd.ReadDir(-1) // reads all the entries in a directory
-
-os.Create()
+fi,err:=fd.Readdir(-1) // reads all the entries in a directory
 
 strings.HasSuffix()
 strings.TrimSuffix()
+
+os.Create()
 
 (*http.Request).FormValue() 
 http.Redirect()
@@ -64,13 +79,12 @@ $ curl -XPOST -d'{"s":"hello, world"}' localhost:8080/uppercase
 $ curl -XPOST -d'{"s":"hello, world"}' localhost:8080/count
 {"v":12}
 ```
-Task: write a go client for stringvc1
+Tasks: 
+(A) Write a go client for stringvc1, creating uppercase() & count() functions work with any given string.
+(B) Extend stringsvc1 to add a "lowercase" service, add use of the new service to your client.
 
 You may find the following go functions helpful:
 ```
 encoding/json - Marshal(), Unmarshal()
-net/http - Post()
-bytes - NewReader()
-io/ioutil - ReadAll()
 ```
 

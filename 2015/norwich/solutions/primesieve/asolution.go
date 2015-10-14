@@ -28,7 +28,7 @@ func sieve() {
 	ch := make(chan int) // Create a new channel.
 	go generate(ch)      // Start generate() as a subprocess.
 	var prime int
-	for prime < 100000 {
+	for prime < 50000 {
 		prime = <-ch
 		//fmt.Print(prime, "\n")
 		ch1 := make(chan int)
