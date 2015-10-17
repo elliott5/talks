@@ -37,9 +37,9 @@ func main() {
 	fmt.Println("Goroutine per file time:", pf,
 		"Proportion of single-thread:", pfpct, "%\n")
 
-	for nc := 1; nc <= 8; nc++ {
+	for nc := 1; nc <= 32; nc++ {
 		start = time.Now()
-		goroutinePerCPU(pth, fi, nc)
+		goroutinesPerCPU(pth, fi, nc)
 		pc := time.Since(start)
 		pcpct := float64(pc.Nanoseconds()) * 100 / float64(st.Nanoseconds())
 		fmt.Println(nc, "goroutine(s) per CPU time:", pc,
@@ -99,10 +99,10 @@ func goroutinePerFile(pth string, fi []os.FileInfo) {
 	fmt.Println("Proportion nude=", arenude, "/", seen, "=", float64(arenude)/float64(seen))
 }
 
-func goroutinePerCPU(pth string, fi []os.FileInfo, nc int) {
+func goroutinesPerCPU(pth string, fi []os.FileInfo, numGR int) {
 	scores := make(chan bool)
 	done := make(chan struct{})
-	cpus := runtime.NumCPU() * nc
+	cpus := runtime.NumCPU() * numGR
 	queue := make(chan string)
 	go func() { // a goroutine to put the work to be done into the queue
 		for _, f := range fi {
