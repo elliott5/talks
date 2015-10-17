@@ -1,25 +1,26 @@
 # Go Coding Exercises
 
-To complete these excercises, you will need to look up documentation on the standard packages, which is available at "godoc.org/pkg".
+If you have some free time during the lunch break, try working through some example code at ["gobyexample.com"](https://gobyexample.com) or watch the short videos on the YouTube ["Go in 5 minutes"](https://www.youtube.com/channel/UC2GHqYE3fVJMncbrRd8AqcA/feed) channel. For more, there is a curated video selection at 
 
-However you should also be able to see these locally by running:
+
+## Documentation
+
+To complete some of the excercises, you will need to look up documentation on the standard packages, which is available at ["golang.org/pkg"](https://golang.org/pkg). However you should also be able to see these locally by running a Go documentation server:
 ```
-$ godoc -v -http=:6060 
+$ godoc -http=:6060 &
 ```
-Then you can see the documentation at "localhost:6060"
+Then you can see the documentation at "localhost:6060". It may take a few seconds to become available.
 
 
-## Ex 1 - go-nude
+## Ex 1 - primesieve
 
-go get github.com/koyachi/go-nude
+The primeseive code is used as [an example](https://golang.org/ref/spec#An_example_package) in the Go specification, which is a really useful reference document. 
 
-Tasks: (A) What proportion of Ruben's pictures are judged nude? 
-(B) How much faster does the task run when parallelized?
+Tasks: 
 
+(A) Limit the number of primes produced.
 
-## Ex 2 - primesieve
-
-Task: How fast does primesieve run with various numbers of cpus?
+(B) How fast does the primesieve run with various numbers of CPUs? 
 
 You may need the following functions in the standard packages:
 ```
@@ -29,6 +30,20 @@ runtime.GOMAXPROCS(n int)
 time.Now() time.Time
 time.Since(t time.Time) time.Duration
 ```
+
+
+## Ex 2 - go-nude
+
+Tasks: 
+
+(A) What proportion of Ruben's pictures are judged nude? 
+
+(B) How much faster does the task run when parallelized one goroutine per picture (unbounded parallelism)?
+
+(C) How about one parallel stream per CPU (bounded parallelism)?
+
+(D) How many parallel streams per CPU gives the same or better performance than one goroutine per picture?
+
 
 ## Ex 3 - gowiki
 
@@ -68,19 +83,25 @@ os.Create()
 http.Redirect()
 ```
 
+
 ## Ex 4 - gokit
 
 The GoKit library is explained at gokit.io
+
+The 
+
 ```
-$ go get github.com/go-kit/kit/examples/stringsvc1
-$ stringsvc1
+$ go run *.go &
+{"v":12}
+
 $ curl -XPOST -d'{"s":"hello, world"}' localhost:8080/uppercase
 {"v":"HELLO, WORLD","err":null}
+
 $ curl -XPOST -d'{"s":"hello, world"}' localhost:8080/count
 {"v":12}
 ```
 Tasks: 
-(A) Write a go client for stringvc1, creating uppercase() & count() functions work with any given string.
+(A) Write a go client for the built-in server, creating uppercase() & count() functions work with any given string.
 (B) Extend stringsvc1 to add a "lowercase" service, add use of the new service to your client.
 
 You may find the following go functions helpful:

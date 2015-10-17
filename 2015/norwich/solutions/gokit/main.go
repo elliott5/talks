@@ -7,34 +7,16 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"time"
 )
 
-// consume the service of github.com/go-kit/kit/examples/stringsvc1
-
-type uppercaseRequest struct {
-	S string `json:"s"`
-}
-
-type uppercaseResponse struct {
-	V   string `json:"v"`
-	Err string `json:"err,omitempty"` // errors don't define JSON marshaling
-}
-
-type countRequest struct {
-	S string `json:"s"`
-}
-
-type countResponse struct {
-	V int `json:"v"`
-}
-
-func ucase(s string) (string, error) {
+func acase(which, s string) (string, error) {
 	req := uppercaseRequest{S: s}
 	j, e0 := json.Marshal(req)
 	if e0 != nil {
 		return "", e0
 	}
-	r, e1 := http.Post("http://localhost:8080/uppercase", "application/json",
+	r, e1 := http.Post("http://localhost:8080/"+which+"case", "application/json",
 		bytes.NewReader(j))
 	if e1 != nil {
 		return "", e1
@@ -53,7 +35,6 @@ func ucase(s string) (string, error) {
 	}
 	return res.V, e3
 }
-
 func count(s string) (int, error) {
 	req := countRequest{S: s}
 	j, e0 := json.Marshal(req)
@@ -78,8 +59,15 @@ func count(s string) (int, error) {
 }
 
 func main() {
-	u, e := ucase("zombie")
-	fmt.Println("ucase", u, e)
-	c, e2 := count("zombie")
-	fmt.Println("count", c, e2)
+	go servermain() // start the local server
+	time.Sleep(time.Second)
+
+	msg := "Hello Norwich!"
+
+	c, e := count(msg)
+	fmt.Println("count", c, e)
+	u, e := acase("upper", msg)
+	fmt.Println("u/case", u, e)
+	l, e := acase("lower", msg)
+	fmt.Println("l/case", l, e)
 }

@@ -6,28 +6,13 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"time"
 )
 
-// consume the service of github.com/go-kit/kit/examples/stringsvc1
-
-type uppercaseRequest struct {
-	S string `json:"s"`
-}
-
-type uppercaseResponse struct {
-	V   string `json:"v"`
-	Err string `json:"err,omitempty"` // errors don't define JSON marshaling
-}
-
-type countRequest struct {
-	S string `json:"s"`
-}
-
-type countResponse struct {
-	V int `json:"v"`
-}
-
 func main() {
+	go servermain() // create a very simple go-kit server
+	time.Sleep(time.Second)
+
 	// just a simple "curl" to get you started...
 	r, e1 := http.Post("http://localhost:8080/count", "application/json",
 		bytes.NewReader([]byte(`{"s":"hello, world"}`)))
@@ -39,4 +24,7 @@ func main() {
 		log.Fatal(e2)
 	}
 	fmt.Println(string(b))
+
+	for { // infinite loop so that curl commands will work
+	}
 }
