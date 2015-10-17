@@ -5,6 +5,7 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"io/ioutil"
 	"net/http"
@@ -84,6 +85,8 @@ func main() {
 	http.HandleFunc("/view/", makeHandler(viewHandler))
 	http.HandleFunc("/edit/", makeHandler(editHandler))
 	http.HandleFunc("/save/", makeHandler(saveHandler))
+
+	fmt.Println("Please goto http://localhost:8080/view/TestPage")
 
 	http.ListenAndServe(":8080", nil)
 }

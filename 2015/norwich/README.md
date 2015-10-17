@@ -22,14 +22,14 @@ Note that putting $GOPATH/bin in your PATH is helpful.
 The second part of the day has some exercises, before the training day please type the following commands to get the required software onto your system (some of which will report "can't load package..." or "...no buildable Go source..."):
 
 ```
-$ go get github.com/elliott5/talks/2015/norwich
+$ go get github.com/elliott5/talks
 $ go get github.com/koyachi/go-nude
 $ go get github.com/go-kit/kit
 ```
 
 Thank you, that will save time on the day.
 
-If you have not watched it already, the [video on the front-page](https://vimeo.com/69237265) of [golang.org](golang.org) provides a good introduction to what we will be doing.
+If you have not watched it already, the half hour [video on the front-page](https://vimeo.com/69237265) of [golang.org](golang.org) provides a good introduction to some of the ideas we will be discussing.
 
 ## Note: Please do not look at the solutions before you have attempted the exercises.
 
