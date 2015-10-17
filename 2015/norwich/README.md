@@ -2,7 +2,7 @@
 
 Please follow the instructions below.
 
-The first part of the day will speed through the [Go Tour](tour.golang.org), an introduction to the Go programming language, which is designed to be run online. 
+The first part of the day will speed through the [Go Tour](http://tour.golang.org), an introduction to the Go programming language, which is designed to be run online. 
 
 However, as you will need Go installed for the second part of the day, you will be more self-sufficient if you install the Go Tour locally - here is how:
 
@@ -29,8 +29,8 @@ $ go get github.com/go-kit/kit
 
 Thank you, that will save time on the day.
 
-If you have not watched it already, the half hour [video on the front-page](https://vimeo.com/69237265) of [golang.org](golang.org) provides a good introduction to some of the ideas we will be discussing.
+If you want to get yourself ready for the day by watching some talks, there is a [curated list of Go videos](https://github.com/golang/go/wiki/GoTalks).
 
 ## Note: Please do not look at the solutions before you have attempted the exercises.
 
-You will find the exercises at $GOPATH+"/src/github.com/elliott5/talks/2015/norwich/exercises"
+You will find the exercises at [$GOPATH+"/src/github.com/elliott5/talks/2015/norwich/exercises"](https://github.com/elliott5/talks/blob/master/2015/norwich/exercises/README.md)
