@@ -88,7 +88,7 @@ http.Redirect()
 
 ## Ex 4 - gokit
 
-The GoKit library is explained at gokit.io
+The GoKit library is explained at http://gokit.io
 
 The server code is a slight adaptation of [stringsvc1](https://github.com/go-kit/kit/tree/master/examples).
 
