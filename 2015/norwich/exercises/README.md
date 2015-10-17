@@ -44,6 +44,8 @@ Tasks:
 
 (D) How many parallel streams per CPU gives the same or better performance than one goroutine per picture?
 
+You may find the "sync.WaitGroup" type helpful.
+
 
 ## Ex 3 - gowiki
 
@@ -88,7 +90,7 @@ http.Redirect()
 
 The GoKit library is explained at gokit.io
 
-The 
+The server code is a slight adaptation of [stringsvc1](https://github.com/go-kit/kit/tree/master/examples).
 
 ```
 $ go run *.go &
@@ -100,12 +102,16 @@ $ curl -XPOST -d'{"s":"hello, world"}' localhost:8080/uppercase
 $ curl -XPOST -d'{"s":"hello, world"}' localhost:8080/count
 {"v":12}
 ```
-Tasks: 
-(A) Write a go client for the built-in server, creating uppercase() & count() functions work with any given string.
-(B) Extend stringsvc1 to add a "lowercase" service, add use of the new service to your client.
 
-You may find the following go functions helpful:
+Tasks: 
+
+(A) Write a go client for the built-in server, creating uppercase() & count() functions work with any given string.
+
+You may find the following Go functions helpful:
 ```
 encoding/json - Marshal(), Unmarshal()
 ```
 
+(B) Extend stringsvc1 to add a "lowercase" service, add use of the new service to your client.
+
+(C) Look at the stringsvc2 & stringsvc3 server code and extend them to use other go-kit facilities (not included in the provided solution).
