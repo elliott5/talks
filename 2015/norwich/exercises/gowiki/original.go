@@ -88,5 +88,5 @@ func main() {
 
 	fmt.Println("Please goto http://localhost:8080/view/TestPage")
 
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe("localhost:8080", nil)
 }

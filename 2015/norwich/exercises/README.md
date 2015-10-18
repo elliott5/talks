@@ -1,6 +1,8 @@
 # Go Coding Exercises
 
-If you have some free time during the lunch break, try working through some example code at ["gobyexample.com"](https://gobyexample.com) or watch the short videos on the YouTube ["Go in 5 minutes"](https://www.youtube.com/channel/UC2GHqYE3fVJMncbrRd8AqcA/feed) channel. For more, there is a curated video selection at 
+If you have some free time during the lunch break, return to the excercises in the Go Tour and complete them. 
+
+If you get bored with coding, watch the short videos on the YouTube ["Go in 5 minutes"](https://www.youtube.com/channel/UC2GHqYE3fVJMncbrRd8AqcA/feed) channel. 
 
 
 ## Documentation
@@ -115,3 +117,10 @@ encoding/json - Marshal(), Unmarshal()
 (B) Extend stringsvc1 to add a "lowercase" service, add use of the new service to your client.
 
 (C) Look at the stringsvc2 & stringsvc3 server code and extend them to use other go-kit facilities (not included in the provided solution).
+
+
+## Want more?
+
+Try working through some training materials at [GoBridge](https://github.com/gobridge/gotraining). 
+
+When you get back home, watch some longer talks from the curated video selection at [GopherVids](https://gophervids.appspot.com/).

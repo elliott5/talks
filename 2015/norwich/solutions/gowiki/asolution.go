@@ -90,7 +90,7 @@ func main() {
 	http.HandleFunc("/new", newTitle)
 	http.HandleFunc("/", listTxtFiles)
 
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe("localhost:8080", nil)
 }
 
 func listTxtFiles(w http.ResponseWriter, r *http.Request) {
