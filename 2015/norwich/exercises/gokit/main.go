@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"runtime"
 	"time"
 )
 
@@ -26,5 +27,6 @@ func main() {
 	fmt.Println(string(b))
 
 	for { // infinite loop so that curl commands will work
+		runtime.Gosched()
 	}
 }
