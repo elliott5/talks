@@ -1,0 +1,56 @@
+$ go run examples.go
+concurrency code-examples for NorDev
+
+Elliott Stoneham
+gopher
+https://github.com/elliott5/talks
+@elliottstoneham
+
+* hello world
+
+.play assets/hello.go
+
+* CSP theory
+
+Communicating Sequential Processes (CSP) is a formal language for describing patterns of interaction in concurrent systems. 
+
+It is a member of the family of mathematical theories of concurrency ... based on message passing via channels. 
+
+CSP was first described in a 1978 paper by Sir Tony Hoare.
+
+.link https://en.wikipedia.org/wiki/Communicating_sequential_processes Wikipedia article
+
+* concurrency
+
+Go provides CSP-like concurrency primitives.
+
+- lightweight threads (goroutines)
+- typed thread-safe communication and synchronization (channels)
+
+The result: comprehensible concurrent code.
+
+* waiting for the waiter
+
+.play assets/simplewaiter.go
+
+* using channels to coordinate activity
+
+.play assets/waiter.go /^func waiter/,/endmain/
+
+* a race to respond 
+
+.play assets/race.go  /^func main/,/^}/
+(note: only works when run locally)
+
+* Chinese whispers, gopher style
+
+.image assets/gophereartrumpet.jpg
+
+* Whispering gophers
+
+.play assets/daisy.go /func/,$
+
+* A parallel processing example... nudity detection
+
+.image assets/161px-Rubens_Venus_at_a_Mirror_c1615.jpg
+

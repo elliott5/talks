@@ -17,4 +17,8 @@ Talks given by Elliott Stoneham
 - [Prosects for using Go libraries from Haxe](https://github.com/elliott5/talks/blob/master/2015/wwx2015.pdf) a talk at [WWX2015](http://wwx.silexlabs.org/2015/)
 - [Norwich Go training day](https://github.com/elliott5/talks/blob/master/2015/norwich/README.md)
 
+2016:
+- ["3 years a Go devloper" at Norfolk Developers (Part I - pdf)](https://github.com/elliott5/talks/blob/master/2016/nordev160203.pdf)
+- ["3 years a Go devloper" at Norfolk Developers (Part II - present)](http://go-talks.appspot.com/github.com/elliott5/talks/blob/master/2016/nordev160203.slide)
+
 To run some of these talks locally, you will need to use the Go [present](http://godoc.org/code.google.com/p/go.tools/present) tool.
