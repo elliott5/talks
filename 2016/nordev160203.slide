@@ -50,7 +50,7 @@ The result: comprehensible concurrent code.
 
 .play assets/daisy.go /func/,$
 
-* A parallel processing example... nudity detection
+* A parallel processing example ... nudity detection
 
 .image assets/161px-Rubens_Venus_at_a_Mirror_c1615.jpg
 
