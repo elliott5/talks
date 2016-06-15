@@ -18,7 +18,8 @@ Talks given by Elliott Stoneham
 - [Norwich Go training day](https://github.com/elliott5/talks/blob/master/2015/norwich/README.md)
 
 2016:
-- ["3 years a Go developer" at Norfolk Developers (Part I - pdf)](https://github.com/elliott5/talks/blob/master/2016/nordev160203.pdf)
-- ["3 years a Go developer" at Norfolk Developers (Part II - present)](http://go-talks.appspot.com/github.com/elliott5/talks/2016/nordev160203.slide)
+- [3 years a Go developer, a talk at Norfolk Developers (Part I - pdf)](https://github.com/elliott5/talks/blob/master/2016/nordev160203.pdf)
+- [3 years a Go developer, a talks at Norfolk Developers (Part II - present)](http://go-talks.appspot.com/github.com/elliott5/talks/2016/nordev160203.slide)
+- [Go behind the scenes, a talk at the Go London user group](http://go-talks.appspot.com/github.com/elliott5/talks/2016/gobehindthescenes.slide)
 
 To run some of these talks locally, you will need to use the Go [present](http://godoc.org/code.google.com/p/go.tools/present) tool.

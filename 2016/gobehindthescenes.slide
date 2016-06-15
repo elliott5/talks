@@ -1,0 +1,204 @@
+Go behind the scenes
+The magic of annotated pointers 
+
+Elliott Stoneham
+Gopher at documize.com
+https://github.com/elliott5/talks
+@elliottstoneham
+
+* I wrote a Go transpiler, here to a Flash animation...
+
+.iframe ./assets/8concurrentgophers.swf 500 800
+
+.caption _Gopher_ by [[http://www.reneefrench.com][Renée French]]
+
+* Annotated Pointers
+
+* Go types
+
+.link https://golang.org/ref/spec#Types The Go Programming Language Specification, Types
+
+Go underlying types that are not annotated pointers:
+
+- Boolean types
+- Numeric types
+- Array types
+- Struct types
+- Pointer types
+- Function types
+
+* Go underlying types that are annotated pointers
+
+- String types
+- Slice types
+- Map types
+- Channel types
+
+Strings, slices, maps and channels can use individual variations of 
+
+    for x := range annotatedPointer {
+        // do something
+    }
+
+- Interface types
+
+* String types
+
+A Go string is an annotated pointer:
+
+- a pointer to some bytes containing the string contents; and
+- an unsigned integer giving the length of the string.
+
+.image assets/godata2.png
+.caption (from Russ Cox's [[http://research.swtch.com/godata][Go Data Structures]])
+
+From the language spec:
+
+- "Strings are immutable: once created, it is impossible to change the contents..."
+- "It is illegal to take the address ... if s[i] is the i'th byte of a string, &s[i] is invalid."
+
+* String range
+
+.play assets/string-range.go
+
+* func Join(a []string, sep string) string - example
+
+.play assets/join-example.go
+
+* func Join(a []string, sep string) string - my implementation
+
+.play assets/join-imp1.go
+
+* func Join(a []string, sep string) string - comparison
+
+.play assets/join-comp.go /^func main/,/^}/
+
+* func Join(a []string, sep string) string - library
+
+    func Join(a []string, sep string) string {
+        if len(a) == 0 {
+            return ""
+        }
+        if len(a) == 1 {
+            return a[0]
+        }
+        n := len(sep) * (len(a) - 1)
+        for i := 0; i < len(a); i++ {
+            n += len(a[i])
+        }
+
+        b := make([]byte, n)
+        bp := copy(b, a[0])
+        for _, s := range a[1:] {
+            bp += copy(b[bp:], sep)
+            bp += copy(b[bp:], s)
+        }
+        return string(b)
+    }
+
+.caption from [[https://golang.org/src/strings/strings.go?s=9002:9042#L341][golang.org/src/strings/strings.go]]
+
+* Slice types 
+
+.caption "A slice is a descriptor of an array segment. It consists of a pointer to the array, the length of the segment, and its capacity (the maximum length of the segment)."
+.image assets/go-slices-usage-and-internals_slice-struct.png
+.caption "... make([]byte, 5), is structured like this:" (from the [[https://blog.golang.org/go-slices-usage-and-internals][Go blog]])
+.image assets/go-slices-usage-and-internals_slice-1.png
+
+* Slice range
+
+.play assets/slice-range.go
+
+* Pointers to slice elements
+
+.play assets/slice-pointer.go
+
+* Sub-Slices
+
+.image assets/godata3.png
+.caption (from Russ Cox's [[http://research.swtch.com/godata][Go Data Structures]])
+.play assets/sub-slice.go
+
+* Map types
+
+.caption [[https://golang.org/src/runtime/hashmap.go][A map is a pointer to]]
+
+    type hmap struct {
+        count int // # live cells == size of map.  Must be first (used by len() builtin)
+        flags uint8
+        B     uint8  // log_2 of # of buckets (can hold up to loadFactor * 2^B items)
+        hash0 uint32 // hash seed
+
+        buckets    unsafe.Pointer // array of 2^B Buckets. may be nil if count==0.
+        oldbuckets unsafe.Pointer // previous bucket array of half the size, non-nil only when growing
+        nevacuate  uintptr        // progress counter for evacuation (buckets less than this have been evacuated)
+
+        // If both key and value do not contain pointers and are inline, then we mark bucket
+        // type as containing no pointers. This avoids scanning such maps.
+        // However, bmap.overflow is a pointer. In order to keep overflow buckets
+        // alive, we store pointers to all overflow buckets in hmap.overflow.
+        // Overflow is used only if key and value do not contain pointers.
+        // overflow[0] contains overflow buckets for hmap.buckets.
+        // overflow[1] contains overflow buckets for hmap.oldbuckets.
+        // The first indirection allows us to reduce static size of hmap.
+        // The second indirection allows to store a pointer to the slice in hiter.
+        overflow *[2]*[]*bmap
+    }
+
+* Map internals
+
+.image assets/arden-labs-maps.png
+.caption see William Kennedy's [[https://www.goinggo.net/2013/12/macro-view-of-map-internals-in-go.html][Macro View of Map Internals In Go]] 
+
+* Map range
+
+.play assets/map-range.go
+
+* Channel types
+
+.caption [[https://golang.org/src/runtime/chan.go][A channel is a pointer to]]
+
+    type hchan struct {
+        qcount   uint           // total data in the queue
+        dataqsiz uint           // size of the circular queue
+        buf      unsafe.Pointer // points to an array of dataqsiz elements
+        elemsize uint16
+        closed   uint32
+        elemtype *_type // element type
+        sendx    uint   // send index
+        recvx    uint   // receive index
+        recvq    waitq  // list of recv waiters
+        sendq    waitq  // list of send waiters
+        lock     mutex
+    }
+
+* Channel range
+
+.play assets/channel-range.go
+
+* Interface types
+
+.play assets/iface1.go
+
+* Interface annotated pointer
+
+.image assets/gointer2.png
+.caption (from Russ Cox's [[http://research.swtch.com/interfaces][Go Data Structures: Interfaces]])
+
+* Methods
+
+.play assets/iface2.go  /^func main/,/^}/
+
+* Reflection
+
+.play assets/iface3.go  /^func main/,/^}/
+
+* Go behind the scenes
+
+The magic of annotated pointers:
+
+- String types
+- Slice types
+- Map types
+- Channel types
+- Interface types
