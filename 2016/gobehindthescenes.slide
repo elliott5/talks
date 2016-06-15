@@ -6,11 +6,11 @@ Gopher at documize.com
 https://github.com/elliott5/talks
 @elliottstoneham
 
-* I wrote a Go transpiler, here to a Flash animation...
+* I wrote a Go transpiler, here to a JS animation...
 
-.iframe ./assets/8concurrentgophers.swf 500 800
+.iframe http://tardisgo.github.io/8concurrentgophers/index.html 550 800
 
-.caption _Gopher_ by [[http://www.reneefrench.com][Renée French]]
+.caption _Gopher_ by [[http://www.reneefrench.com][Renée French]], Transpiler [[http://tardisgo.github.io][TARDISgo]]
 
 * Annotated Pointers
 
